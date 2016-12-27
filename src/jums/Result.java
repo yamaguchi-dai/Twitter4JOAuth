@@ -10,11 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import twitter4j.auth.RequestToken;
 
 /**
- * Servlet implementation class Result
+ * TwitterAPIのCALLBACKURLにはこのサーブレットを指定する
  */
 @WebServlet("/Result")
 public class Result extends HttpServlet {
