@@ -34,14 +34,14 @@ public class Result extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ServletContext sc = getServletContext();
+		HttpSession session = request.getSession();
 	
 		TwitterHelper th = new TwitterHelper();
 
 		// APIからURLで送られてきた情報を受け取る
 		String pin = request.getParameter("oauth_verifier");
 		// Loginで保存したRequestTokenを再度呼び出す
-		RequestToken requestToken = (RequestToken) sc.getAttribute("requestToken");
+		RequestToken requestToken = (RequestToken) session.getAttribute("requestToken");
 		
 		//Oauthでえた情報を元になにかしらの操作を行う。今回は名前を取得するメソッド
 		String name = th.setApi(requestToken, pin);
