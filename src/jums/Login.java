@@ -30,7 +30,7 @@ public class Login extends HttpServlet {
 		
 		
 		
-		ServletContext sc = getServletContext();
+		HttpSession  session = request.getSession();
 		TwitterHelper th = new TwitterHelper();
 		RequestToken requestToken = th.getRequestToken();
 		
@@ -38,7 +38,7 @@ public class Login extends HttpServlet {
 		String URL = requestToken.getAuthorizationURL();
 		
 		// APIから帰ってきたときに使うので。
-		sc.setAttribute("requestToken", requestToken);
+		session.setAttribute("requestToken", requestToken);
 		
 		// 次のページにURLを持っていきリンクを作る
 		request.setAttribute("URL", URL);
